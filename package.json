@@ -1,0 +1,29 @@
+{
+  "name": "tachyonizer",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tachyonizer/tachyonizer.git"
+  },
+  "keywords": [
+    "css",
+    "tachyons",
+    "components",
+    "css-in-js",
+    "styles"
+  ],
+  "authors": [
+    "Vladimir Chekholin <chekholin@outlook.com> (https://github.com/cadaverine)",
+    "Alexander Ivankov <alexanderivankoff@gmail.com> (https://github.com/MoonW1nd)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tachyonizer/tachyonizer/issues"
+  },
+  "homepage": "https://github.com/tachyonizer/tachyonizer#readme"
+}
