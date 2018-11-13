@@ -1,0 +1,23 @@
+{
+  "name": "tachyonizer",
+  "version": "1.0.0",
+  "description": " ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tachyonizer/tachyonizer/issues"
+  },
+  "homepage": "https://github.com/tachyonizer/tachyonizer#readme",
+  "dependencies": {
+    "acorn": "^6.0.4",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.6"
+  }
+}
