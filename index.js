@@ -1,6 +1,7 @@
 const fs = require('fs');
 const util = require('util');
 const path = require('path');
+const types = require('@babel/types');
 const parser = require('@babel/parser');
 const traverse = require('@babel/traverse');
 
