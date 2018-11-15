@@ -1,15 +1,16 @@
-const fs = require('fs');
-const util = require('util');
 const path = require('path');
 const types = require('@babel/types');
-const parser = require('@babel/parser');
 const traverse = require('@babel/traverse');
+const generate = require('@babel/generator');
+const { parse } = require('@babel/parser');
+const { readFile } = require('fs');
 
-const readFile = util.promisify(fs.readFile);
 
-readFile(path.resolve(__dirname, './src/code.js')).then((data) => {
+readFile(path.resolve(__dirname, './src/code.js'), (err, data) => {
     const code = data.toString('utf-8');
     console.log(code);
-    const AST = parser.parse(code);
+    const AST = parse(code);
     console.log(AST);
+    const generatedCode = generate.default(AST);
+    console.log(generatedCode);
 });
