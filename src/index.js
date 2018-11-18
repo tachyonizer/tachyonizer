@@ -18,9 +18,16 @@ const port = process.env.PORT || 8080;
 app.get('/', (req, res) => {
   readFileAsync(path.join(__dirname, './css-in-js.js'), { encoding: 'utf8' })
     .then((data) => {
-      const ast = parser.parse(data);
+      const ast = parser.parse(data, {
+        plugins: [
+          "jsx"
+        ]
+      });
       let babelCssAst;
+      let elementName;
 
+
+      // get css
       traverse(ast, {
         enter(path) {
           if (types.isAssignmentExpression(path.node)
@@ -31,6 +38,8 @@ app.get('/', (req, res) => {
             && types.isObjectExpression(path.node.right)
           ) {
               babelCssAst = path.node.right;
+              elementName = path.node.left.object.name;
+              path.remove();
             }
         }
       })
@@ -46,7 +55,31 @@ app.get('/', (req, res) => {
 
       const CSS = getCssFromStylesObject(styles);
 
-      res.json(CSS);
+
+      // update JSX element
+      traverse(ast, {
+        enter(path) {
+          if (types.isReturnStatement(path.node)
+            && types.isJSXElement(path.node.argument)
+          ) {
+              path.node.argument.openingElement.attributes.push(
+                {
+                  "type": "JSXAttribute",
+                  "name": {
+                    "type": "JSXIdentifier",
+                    "name": "className"
+                  },
+                  "value": {
+                    "type": "StringLiteral",
+                    "value": "tachyonizer"
+                  }
+                }
+              )
+            }
+        }
+      })
+
+      res.json(ast);
     })
 })
 
