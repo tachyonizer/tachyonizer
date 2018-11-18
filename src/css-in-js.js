@@ -4,6 +4,6 @@ Title.style = {
   border: '2px solid black',
 }
 
-function Title() {
+export default function Title() {
   return <h1>Тест</h1>
 }
