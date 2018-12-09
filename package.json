@@ -1,0 +1,65 @@
+{
+  "name": "tachyonizer",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cm": "git-cz"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g './config/git/commitlint.js'"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tachyonizer/tachyonizer.git"
+  },
+  "keywords": [
+    "css",
+    "tachyons",
+    "components",
+    "css-in-js",
+    "styles"
+  ],
+  "authors": [
+    "Vladimir Chekholin <chekholin@outlook.com> (https://github.com/cadaverine)",
+    "Alexander Ivankov <alexanderivankoff@gmail.com> (https://github.com/MoonW1nd)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tachyonizer/tachyonizer/issues"
+  },
+  "homepage": "https://github.com/tachyonizer/tachyonizer#readme",
+  "devDependencies": {
+    "@babel/generator": "^7.1.6",
+    "@babel/parser": "^7.1.6",
+    "@babel/traverse": "^7.1.6",
+    "@babel/types": "^7.2.0",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "commitizen": "^3.0.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "husky": "^1.1.4",
+    "lint-staged": "^8.0.5",
+    "rollup": "^0.67.4",
+    "rollup-plugin-typescript2": "^0.18.0",
+    "typescript": "^3.2.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
